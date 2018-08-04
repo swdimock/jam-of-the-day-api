@@ -41,14 +41,17 @@ class Jams extends BaseController
                         'song' => $e['song'],
                         'artist' => $e['artist'],
                         'link' => $e['link'],
+                        'embed' => $e['embed'],
                         'jammer_id' => $jammer_id,
                         'timestamp' => date('Y-m-d')
                     ]
                 );
 
             if ($result) {
-                $this->_postToSlack($e);
+                // $this->_postToSlack($e);
+                echo json_encode($e);
             }
+            exit;
         });
     }
 
@@ -127,6 +130,7 @@ class Jams extends BaseController
         $result['song'] = trim($title[1]);
         $result['thumbnail'] = $ytarr['thumbnail_url'];
         $result['link'] = "https://www.youtube.com/watch?v={$id}";
+        $result['embed'] = "https://www.youtube.com/embed/{$id}?rel=0&amp;controls=0&amp;showinfo=0";
 
         $callback($result);
     }
