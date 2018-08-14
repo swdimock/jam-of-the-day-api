@@ -16,17 +16,20 @@ $router->get('/', function () {
 });
 
 // Jammer endpoints
+$router->get('/jammers', 'Jammers@getJammers');
 $router->get('/jammer/{id}', 'Jammers@getJammer');
-$router->get('/jammer/', 'Jammers@getJammer');
+$router->get('/jammer', 'Jammers@getJammer');
 $router->put('/jammer/{name}', 'Jammers@createJammer');
 $router->post('/jammer/{id}/{status}', 'Jammers@updateJammer');
 $router->delete('/jammer/{id}', 'Jammers@deleteJammer');
 
 $router->get('/todaysjammer/{date}', 'Jammers@getJammerByDate');
-$router->get('/todaysjammer/', 'Jammers@getJammerByDate');
+$router->get('/todaysjammer', 'Jammers@getJammerByDate');
 
 $router->get('/randomjammer/{excludeId}', 'Jammers@getRandomJammer');
-$router->get('/randomjammer/', 'Jammers@getRandomJammer');
+$router->get('/randomjammer', 'Jammers@getRandomJammer');
+
+$router->get('/highscore', 'Jammers@getHighScoreJammer');
 
 // Jam endpoints
 $router->get('/jam/{id}', 'Jams@getJam');

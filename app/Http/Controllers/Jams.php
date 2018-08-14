@@ -23,6 +23,7 @@ class Jams extends BaseController
         if (!is_null($id)) {
             $query .= " WHERE `id` = {$id}";
         }
+        $query .= " ORDER BY timestamp DESC";
         return app('db')->select($query);
     }
 
