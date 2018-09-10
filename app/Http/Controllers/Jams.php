@@ -49,7 +49,7 @@ class Jams extends BaseController
                 );
 
             if ($result) {
-                // $this->_postToSlack($e);
+                 $this->_postToSlack($e);
                 echo json_encode($e);
             }
             exit;

@@ -15,6 +15,23 @@ $router->get('/', function () {
     return "Error: Wubba Lubba Dub Dub.";
 });
 
+// CORS
+//$router->options(
+//    '/{any:.*}',
+//    ['middleware' => ['cors'],
+//     function () {
+//         return response(['status' => 'success']);
+//     }]
+//);
+
+$router->options(
+    '(.*)',
+    ['middleware' => ['cors'],
+     function () {
+         return response(['status' => 'success']);
+     }]
+);
+
 // Jammer endpoints
 $router->get('/jammers', 'Jammers@getJammers');
 $router->get('/jammer/{id}', 'Jammers@getJammer');
